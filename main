@@ -1,0 +1,28 @@
+pragma solidity ^0.4.19;
+
+contract Client {
+
+address owner public;
+
+modifier onlyOwner {
+	if (msg.sender != owner) {
+		throw;
+	}
+	_;
+}
+
+	 struct client {
+	 string clientName;
+	}
+
+	 Client[] public clients;
+
+	 mapping (address => uint) public ownedClients;
+	 mapping (uint => address) public clientOwnership;
+
+	 function createClient(string, _clientName) onlyOwner public {
+	 	uint id = clients.push(Client(_bankName)) - 1;
+	 }
+	 
+}
+
