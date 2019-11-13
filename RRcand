@@ -1,0 +1,31 @@
+pragma solidity ^0.4.19;
+
+import "./RR-client.sol";
+
+contract RecruitingDatabase is Client {
+
+	 struct candidate {
+	 	string candidateName;
+	 	string emailAddress;
+	 }
+
+	 candidate[] public candidates;
+
+	 mapping (address => uint) public managingCandidate;
+	 mapping (uint => address) public candidateOwnership;
+
+	 function createCandidate(string, _candidateName, string _emailAddress) public {
+	 	uint id = candidates.push(candidate(_candidateNamem _emailAddress)) - 1;
+	 }
+
+	 function candidateOwnershipcChange(uint _candidateId, address _newOwner) public {
+	 	require (candidates.candidateOwnership == msg.sender);
+	 	managingCandidate(msg.sender) = _newOwner;
+	 }
+
+	 function viewOwnership(uint _candidateId) returns(address) public {
+	 	return candidateOwnership[address];
+	 }
+	 
+
+}
